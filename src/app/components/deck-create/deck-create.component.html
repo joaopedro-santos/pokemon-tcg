@@ -1,0 +1,83 @@
+<svg class="fixed w-[100vw] -z-10" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1440" height="1080" preserveAspectRatio="none" viewBox="0 0 1440 1080">
+  <g mask="url(&quot;#SvgjsMask1079&quot;)" fill="none">
+      <rect width="1440" height="1080" x="0" y="0" fill="rgba(24, 106, 59, 0.13)"></rect>
+      <path d="M0,669.565C125.099,691.932,247.87,620.748,354.325,551.34C460.282,482.257,574.451,398.812,603.931,275.806C632.663,155.921,521.771,49.527,503.821,-72.439C485.962,-193.788,553.822,-322.896,499.627,-432.93C440.817,-552.335,334.057,-674.202,201.502,-686.252C67.023,-698.476,-18.997,-541.777,-144.307,-491.465C-252.304,-448.104,-394.008,-494.844,-477.403,-413.672C-561.238,-332.072,-547.751,-196.942,-565.676,-81.332C-583.812,35.639,-639.686,162.352,-582.808,266.16C-526.096,369.665,-378.335,370.526,-281.291,437.697C-179.313,508.284,-122.088,647.737,0,669.565" fill="rgba(16, 70, 39, 0.13)"></path>
+      <path d="M1440 1632.45C1559.353 1642.551 1685.838 1683.183 1792.03 1627.77 1900.466 1571.186 1962.6019999999999 1452.717 2004.587 1337.838 2044.5430000000001 1228.511 2068.266 1103.374 2022.851 996.199 1979.973 895.011 1857.511 861.721 1773.0430000000001 791.4159999999999 1704.879 734.681 1653.9 661.796 1574.242 622.812 1483.335 578.322 1382.906 526.412 1285.155 552.646 1187.06 578.973 1143.192 689.1859999999999 1068.896 758.437 983.4590000000001 838.072 856.212 880.698 815.683 990.237 773.093 1105.345 792.699 1240.927 850.271 1349.32 906.547 1455.272 1016.137 1519.333 1124.288 1571.257 1222.922 1618.6109999999999 1330.978 1623.223 1440 1632.45" fill="rgba(32, 142, 79, 0.13)"></path>
+  </g>
+  <defs>
+      <mask id="SvgjsMask1079">
+          <rect width="1440" height="1080" fill="#ffffff"></rect>
+      </mask>
+  </defs>
+</svg>
+
+<h2 class="font-semibold text-xl mt-4 mb-2 max-w-7xl mx-auto max-sm:px-2 md:px-2">Criação de Deck</h2>
+
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between mt-6 max-sm:px-2 md:px-2 mb-16">
+  <!-- Primeira Coluna -->
+  <div class="w-full lg:w-1/2 lg:mr-4">
+    <input type="text" [(ngModel)]="deckName" placeholder="Deck Name" class="mb-4 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+    <select [(ngModel)]="selectedCard" class="mb-4 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+      <option *ngFor="let card of availableCards" [ngValue]="card">{{ card.name }}</option>
+    </select>
+    <span class="font-medium texte-black">* O deck tem que ter no mínimo 24 cartas e no máximo 60</span>
+    <div class="flex flex-col lg:flex-row mt-2">
+      <button (click)="addCard()" class="mb-2 lg:mb-0 lg:mr-2 bg-blue-500 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-200 focus:ring-opacity-50">Add Card</button>
+      <button [disabled]="isSaveButtonDisabled()"  (click)="saveDeck()" class="mb-2 lg:mb-0 lg:mr-2 bg-green-500 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-green-700 focus:outline-none focus:ring focus:ring-green-200 focus:ring-opacity-50">Save Deck</button>
+      <button (click)="clearForm()" class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-md shadow-md hover:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-opacity-50">Clear</button>
+    </div>
+    <div class="mt-4 max-w-6xl mx-auto max-sm:px-2 md:px-2">
+      <p class="font-semibold">Cartas do deck: {{ selectedCards.length }}</p>
+      <div *ngFor="let card of selectedCards">
+        {{ card.name }}
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Segunda Coluna -->
+  <div class="w-full lg:w-1/2 lg:ml-4 mt-4 lg:mt-0">
+    <div *ngIf="selectedCard" class="bg-gray-100 p-4 rounded-md border border-gray-300 flex flex-col lg:flex-row gap-10">
+      <div>        
+        <p class="font-semibold">Carta Selecionada:</p>
+        <p>{{ selectedCard.name }}</p>
+        <img [src]="selectedCard.imageUrl" alt="Selected Card" class="mt-4 lg:mt-0 lg:w-60 rounded-md shadow-md">
+      </div>
+      <div class="flex flex-col gap">
+        <p class="font-semibold">Detalhes do Card:</p>
+        <p><strong>HP - </strong>{{ selectedCard.hp }}</p>
+        <p><strong>Tipo - </strong>{{ selectedCard.types }}</p>
+        <p><strong>Série - </strong>{{ selectedCard.series }}</p>
+        <p><strong>Evolução - </strong>{{ selectedCard.evolvesFrom }}</p>
+        <br>
+        <hr>
+        <br>
+        <p class="font-semibold">Habilidades:</p>
+        <div *ngFor="let attack of selectedCard.attacks">
+          <p><strong>Ataque - </strong>{{ attack.name }}</p>
+          <p><strong>Descrição - </strong>{{ attack.text }}</p>
+          <p><strong>Dano - </strong>{{ attack.damage }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showToast" id="toast-danger" class="fixed top-0 inset-x-0 mx-auto mt-5 max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 animate-slide-down z-50" role="alert">
+  <div class="flex items-center justify-between"> <!-- Modificado -->
+    <div class="inline-flex text-center items-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200"> <!-- Modificado -->
+        <svg class="w-5 h-5 ml-[5px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z"/>
+        </svg>
+        <span class="sr-only">Error icon</span>
+    </div>
+    <div class="ms-3 text-sm font-normal">O baralho já possui 4 cartas com o mesmo nome.</div>
+    <button (click)="showToast = false" type="button" class="-mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-danger" aria-label="Close"> <!-- Modificado -->
+        <span class="sr-only">Close</span>
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+        </svg>
+    </button>
+  </div>
+</div>
+

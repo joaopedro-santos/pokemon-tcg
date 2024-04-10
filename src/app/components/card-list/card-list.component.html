@@ -1,0 +1,110 @@
+<div class="flex items-center flex-col bg-[#DDFAE8]">
+  <p class="font-semibold text-3xl">Tipo</p>
+  <div class="flex gap-3">
+    <label class="flex items-center space-x-2">
+      <input
+        type="radio"
+        name="type"
+        value=""
+        [(ngModel)]="selectedType"
+        (change)="filterByType()"
+        class="form-radio text-blue-500 focus:border-blue-400 focus:ring focus:ring-blue-200 dark:focus:ring-blue-600 dark:focus:border-blue-600 dark:border-gray-700 dark:bg-gray-800"
+      />
+      <span>Todos os tipos</span>
+    </label>
+    <label *ngFor="let type of types" class="flex items-center space-x-2">
+      <input
+        type="radio"
+        name="type"
+        [value]="type"
+        [(ngModel)]="selectedType"
+        (change)="filterByType()"
+        class="form-radio text-blue-500 focus:border-blue-400 focus:ring focus:ring-blue-200 dark:focus:ring-blue-600 dark:focus:border-blue-600 dark:border-gray-700 dark:bg-gray-800"
+      />
+      <span>{{ type }}</span>
+    </label>
+  </div>
+</div>
+
+<div class="bg-[#DDFAE8]" *ngIf="filteredCards">
+  <ul class="w-[60vw] mx-auto flex flex-wrap justify-between p-10 gap-5">
+    <li
+      class="hover:-translate-y-1.5 transition-all cursor-pointer hover:drop-shadow-xl"
+      *ngFor="let card of filteredCards"
+      (click)="showDetails(card)"
+    >
+      <img class="w-48" [src]="card.imageUrl" alt="Imagem da Carta" />
+    </li>
+  </ul>
+</div>
+
+<!-- Main modal -->
+<div
+  id="default-modal"
+  tabindex="-1"
+  [attr.aria-hidden]="selectedCard ? 'false' : 'true'"
+  class="overflow-y-auto overflow-x-hidden fixed z-50"
+  [ngClass]="{ hidden: !selectedCard }"
+>
+  <!-- Modal content -->
+  <div class="relative bg-white rounded-lg shadow-lg w-full">
+    <!-- Modal header -->
+    <div
+      class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+    >
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+        {{ selectedCard?.name }}
+        <!-- Exibir o nome do card selecionado -->
+      </h3>
+      <button
+        type="button"
+        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+        (click)="closeModal()"
+        data-modal-hide="default-modal"
+      >
+        <svg
+          class="w-3 h-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+          />
+        </svg>
+        <span class="sr-only">Close modal</span>
+      </button>
+    </div>
+
+    <!-- Modal body -->
+    <div class="p-4 md:p-5 space-y-4">
+      <div class="flex justify-between gap-6">
+        <img
+          class="w-full"
+          [src]="selectedCard?.imageUrl"
+          alt="Imagem da Carta"
+          *ngIf="selectedCard"
+        />
+        <div class="flex flex-col">
+          <div class="bg-[#A4A4A4] p-2 w-[400px] text-yellow-50 text-2xl font-bold rounded-t-xl">
+            {{ selectedCard?.name }}
+          </div>
+          <div class="bg-[#F2F2F2] flex justify-between items-center p-2">
+            <p>{{ selectedCard?.supertype }}</p>
+            <p>HP<span class="font-semibold text-3xl">{{ selectedCard?.hp }}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal footer -->
+  </div>
+</div>
+
+<!-- Fundo escuro quando o modal está aberto -->
+<div class="modal-backdrop" *ngIf="selectedCard"></div>
