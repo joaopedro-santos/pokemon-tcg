@@ -7,11 +7,11 @@ import { DeckDetailComponent } from './components/deck-detail/deck-detail.compon
 import { EditDeckComponent } from './components/edit-deck/edit-deck.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'cardsList', component: CardListComponent },
   { path: 'decks/create', component: DeckCreateComponent },
   { path: 'decksList', component: DeckListComponent },
   { path: 'decksList/:id', component: DeckDetailComponent },
-  { path: 'editDeck/:id', component: EditDeckComponent }, // Adicione esta linha para a rota de edição de deck
-  { path: '', redirectTo: '/decks', pathMatch: 'full' }
+  { path: 'editDeck/:id', component: EditDeckComponent }, 
 ];
