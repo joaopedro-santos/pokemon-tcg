@@ -1,7 +1,7 @@
 Este é um aplicativo web desenvolvido utilizando Angular 16+, Tailwind e a biblioteca UI Infragistics. Ele permite aos jogadores montar seus próprios baralhos utilizando a API oficial do Pokémon TCG.
 
 
-Funcionalidades
+# Funcionalidades
 Lista de Baralhos
 Visualização: Os jogadores podem ver uma lista dos seus baralhos existentes.
 Criação: Os jogadores podem criar um novo baralho.
