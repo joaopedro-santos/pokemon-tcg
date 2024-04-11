@@ -76,15 +76,31 @@
     <h2 class="text-2xl mb-5">
       Editar Deck: {{ deck.name }}
     </h2>
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <select (change)="onSelectChange($event)" class="block w-full md:w-72 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <option *ngFor="let card of availableCards" [value]="card.name">
-          {{ card.name }}
-        </option>
-      </select>
-      <button (click)="saveChanges()" class="rounded-lg px-4 py-2 bg-blue-500 text-white">
-        Salvar alterações
-      </button>
+    <div class="mb-4">
+      <label class="inline-flex items-center">
+        <input type="checkbox" (change)="toggleTypeFilter('Pokémon')" class="form-checkbox text-blue-500 h-5 w-5">
+        <span class="ml-2">Pokémon</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="checkbox" (change)="toggleTypeFilter('Trainer')" class="form-checkbox text-blue-500 h-5 w-5">
+        <span class="ml-2">Trainer</span>
+      </label>
+      <!-- Adicione mais checkboxes para outros tipos, se necessário -->
+    </div>
+    <div class="font-bold mb-4 max-w-7xl mx-auto">
+      <h2 class="text-2xl mb-5">
+        Editar Deck: {{ deck.name }}
+      </h2>
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <select (change)="onSelectChange($event)" class="block w-full md:w-72 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          <option *ngFor="let card of filteredAvailableCards" [value]="card.name">
+            {{ card.name }}
+          </option>
+        </select>
+        <button (click)="saveChanges()" class="rounded-lg px-4 py-2 bg-blue-500 text-white">
+          Salvar alterações
+        </button>
+      </div>
     </div>
   </div>
   

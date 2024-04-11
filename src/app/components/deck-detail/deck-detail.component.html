@@ -1,15 +1,8 @@
-<!-- edit-deck.component.html -->
-
 <div *ngIf="deck" class="mb-16 mt-16">
   <nav class="flex max-w-7xl mx-auto mb-6" aria-label="Breadcrumb">
-    <ol
-      class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
-    >
+    <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse" >
       <li class="inline-flex items-center">
-        <a
-          href="/home"
-          class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
-        >
+        <a href="/home" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
           <svg
             class="w-3 h-3 me-2.5"
             aria-hidden="true"
@@ -77,6 +70,12 @@
   <h2 class="text-2xl font-bold mb-4 max-w-7xl mx-auto">
     Deck: {{ deck.name }}
   </h2>
+  <div class="mt-8 max-w-7xl mx-auto flex justify-between max-sm:flex-col items-center">
+    <p><strong>Total de Pokémon:</strong> {{ pokemonCount }}</p>
+    <p><strong>Total de Cartas de Treinador:</strong> {{ trainerCount }}</p>
+    <p><strong>Total de Cores:</strong> {{ colorCount }}</p>
+    <p><strong>Tipos Únicos:</strong> {{ uniqueTypes.size }}</p>
+  </div>
   <h3 class="text-xl mb-4 max-w-7xl mx-auto">Cards:</h3>
 
   <div class="mx-auto grid grid-cols-4 gap-4 justify-center max-w-7xl">

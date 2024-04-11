@@ -16,6 +16,7 @@ export class EditDeckComponent implements OnInit {
   deckId: number | undefined;
   deck: Deck | undefined;
   availableCards: Card[] = [];
+  selectedTypes: Set<string> = new Set<string>();
 
   constructor(
     private route: ActivatedRoute,
@@ -104,6 +105,24 @@ export class EditDeckComponent implements OnInit {
       this.addCard(selectedCard);
     } else {
       console.error('Card not found:', selectedName);
+    }
+  }
+
+  // Adicione uma propriedade computada para filtrar as cartas disponíveis com base nos tipos selecionados
+  get filteredAvailableCards(): Card[] {
+    if (this.selectedTypes.size === 0) {
+      return this.availableCards;
+    } else {
+      return this.availableCards.filter(card => this.selectedTypes.has(card.supertype));
+    }
+  }
+
+  // Adicione uma função para alternar os tipos de carta filtrados
+  toggleTypeFilter(type: string): void {
+    if (this.selectedTypes.has(type)) {
+      this.selectedTypes.delete(type);
+    } else {
+      this.selectedTypes.add(type);
     }
   }
 }
