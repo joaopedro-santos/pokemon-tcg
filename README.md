@@ -1,4 +1,5 @@
-Este é um aplicativo web desenvolvido utilizando Angular 16+, Tailwind e a biblioteca UI Infragistics. Ele permite aos jogadores montar seus próprios baralhos utilizando a API oficial do Pokémon TCG.
+<h3 align="center">Este é um aplicativo web desenvolvido utilizando Angular 16+, Tailwind e a biblioteca UI Infragistics. Ele permite aos jogadores montar seus próprios baralhos utilizando a API oficial do Pokémon TCG.</h3>
+<img align="center" src="https://static.wikia.nocookie.net/nintendo/images/8/82/All_Starter_Pok%C3%A9mon.png/revision/latest?cb=20230603051954&path-prefix=en">
 
 
 # Funcionalidades
