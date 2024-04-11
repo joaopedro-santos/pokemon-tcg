@@ -1,6 +1,6 @@
 <div class="flex items-center flex-col bg-[#DDFAE8]">
   <p class="font-semibold text-3xl">Tipo</p>
-  <div class="flex gap-3">
+  <div class="flex gap-3 flex-wrap px-10">
     <label class="flex items-center space-x-2">
       <input
         type="radio"
@@ -10,7 +10,7 @@
         (change)="filterByType()"
         class="form-radio text-blue-500 focus:border-blue-400 focus:ring focus:ring-blue-200 dark:focus:ring-blue-600 dark:focus:border-blue-600 dark:border-gray-700 dark:bg-gray-800"
       />
-      <span>Todos os tipos</span>
+      <span class="md:inline">Todos os tipos</span>
     </label>
     <label *ngFor="let type of types" class="flex items-center space-x-2">
       <input
@@ -21,7 +21,7 @@
         (change)="filterByType()"
         class="form-radio text-blue-500 focus:border-blue-400 focus:ring focus:ring-blue-200 dark:focus:ring-blue-600 dark:focus:border-blue-600 dark:border-gray-700 dark:bg-gray-800"
       />
-      <span>{{ type }}</span>
+      <span class="md:inline">{{ type }}</span>
     </label>
   </div>
 </div>
@@ -47,7 +47,7 @@
   [ngClass]="{ hidden: !selectedCard }"
 >
   <!-- Modal content -->
-  <div class="relative bg-white rounded-lg shadow-lg w-full">
+  <div class="relative bg-white rounded-lg shadow-lg w-full max-sm:w-80">
     <!-- Modal header -->
     <div
       class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
@@ -83,28 +83,24 @@
 
     <!-- Modal body -->
     <div class="p-4 md:p-5 space-y-4">
-      <div class="flex justify-between gap-6">
+      <div class="flex justify-between gap-6 flex-wrap">
         <img
-          class="w-full"
+          class="w-80 max-sm:w-70"
           [src]="selectedCard?.imageUrl"
           alt="Imagem da Carta"
           *ngIf="selectedCard"
         />
         <div class="flex flex-col">
-          <div class="bg-[#A4A4A4] p-2 w-[400px] text-yellow-50 text-2xl font-bold rounded-t-xl">
+          <div class="bg-[#A4A4A4] p-2 w-[400px] max-sm:w-[290px] text-yellow-50 text-2xl font-bold rounded-t-xl">
             {{ selectedCard?.name }}
           </div>
-          <div class="bg-[#F2F2F2] flex justify-between items-center p-2">
+          <div class="bg-[#F2F2F2] flex justify-between items-center p-2 max-sm:flex-col">
             <p>{{ selectedCard?.supertype }}</p>
             <p>HP<span class="font-semibold text-3xl">{{ selectedCard?.hp }}</span></p>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Modal footer -->
   </div>
 </div>
-
-<!-- Fundo escuro quando o modal está aberto -->
 <div class="modal-backdrop" *ngIf="selectedCard"></div>
