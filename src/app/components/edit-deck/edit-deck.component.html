@@ -72,21 +72,7 @@
     </ol>
   </nav>  
 
-  <div class="font-bold mb-4 max-w-7xl mx-auto">
-    <h2 class="text-2xl mb-5">
-      Editar Deck: {{ deck.name }}
-    </h2>
-    <div class="mb-4">
-      <label class="inline-flex items-center">
-        <input type="checkbox" (change)="toggleTypeFilter('Pokémon')" class="form-checkbox text-blue-500 h-5 w-5">
-        <span class="ml-2">Pokémon</span>
-      </label>
-      <label class="inline-flex items-center">
-        <input type="checkbox" (change)="toggleTypeFilter('Trainer')" class="form-checkbox text-blue-500 h-5 w-5">
-        <span class="ml-2">Trainer</span>
-      </label>
-      <!-- Adicione mais checkboxes para outros tipos, se necessário -->
-    </div>
+  <div class="font-bold mb-4 max-w-7xl mx-auto">        
     <div class="font-bold mb-4 max-w-7xl mx-auto">
       <h2 class="text-2xl mb-5">
         Editar Deck: {{ deck.name }}
@@ -97,6 +83,17 @@
             {{ card.name }}
           </option>
         </select>
+        <div class="mb-4 flex gap-3">
+          <label class="inline-flex items-center">
+            <input type="checkbox" (change)="toggleTypeFilter('Pokémon')" class="form-checkbox text-blue-500 h-5 w-5">
+            <span class="ml-2">Pokémon</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" (change)="toggleTypeFilter('Trainer')" class="form-checkbox text-blue-500 h-5 w-5">
+            <span class="ml-2">Trainer</span>
+          </label>
+          <!-- Adicione mais checkboxes para outros tipos, se necessário -->
+        </div>
         <button (click)="saveChanges()" class="rounded-lg px-4 py-2 bg-blue-500 text-white">
           Salvar alterações
         </button>
