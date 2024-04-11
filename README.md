@@ -2,8 +2,8 @@ Este é um aplicativo web desenvolvido utilizando Angular 16+, Tailwind e a bibl
 
 
 # Funcionalidades
-Lista de Baralhos
-Visualização: Os jogadores podem ver uma lista dos seus baralhos existentes.
+- Lista de Baralhos
+-- Visualização: Os jogadores podem ver uma lista dos seus baralhos existentes.
 Criação: Os jogadores podem criar um novo baralho.
 Remoção: Os jogadores podem remover um baralho existente.
 Edição: Os jogadores podem editar um baralho existente.
