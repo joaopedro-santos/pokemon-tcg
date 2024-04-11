@@ -1,27 +1,32 @@
-# PokemonDeck
+Este é um aplicativo web desenvolvido utilizando Angular 16+, Tailwind e a biblioteca UI Infragistics. Ele permite aos jogadores montar seus próprios baralhos utilizando a API oficial do Pokémon TCG.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
-## Development server
+Funcionalidades
+Lista de Baralhos
+Visualização: Os jogadores podem ver uma lista dos seus baralhos existentes.
+Criação: Os jogadores podem criar um novo baralho.
+Remoção: Os jogadores podem remover um baralho existente.
+Edição: Os jogadores podem editar um baralho existente.
+Detalhes: Os jogadores podem clicar em um baralho para visualizar seus detalhes.
+Criação de um Baralho
+Nome: Os jogadores podem atribuir um nome ao seu baralho.
+Inserção de Cartas: Os jogadores podem adicionar cartas ao seu baralho.
+Restrições de Cartas: O baralho deve conter entre 24 e 60 cartas, e não pode conter mais do que 4 cartas com o mesmo nome.
+Salvamento: Após salvar o baralho, os jogadores são redirecionados para a lista de baralhos atualizada.
+Armazenamento: O baralho é salvo apenas em memória.
+Detalhes do Baralho
+Tipos de Cartas: Os jogadores podem ver quantos Pokémon e cartas de Treinador existem no baralho.
+Cores do Baralho: Os jogadores podem ver quantos tipos únicos de Pokémon existem no baralho.
+Instalação e Execução
+Clone o Repositório: git clone https://github.com/seu-usuario/pokemon-tcg-deck-builder.git
+Instale as Dependências: npm install
+Inicie o Servidor de Desenvolvimento: ng serve
+Acesse o Aplicativo: Navegue para http://localhost:4200/ no seu navegador.
+Contribuição
+Se você gostaria de contribuir para este projeto, por favor, siga estes passos:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Faça um Fork do projeto
+Crie uma nova branch (git checkout -b feature/nova-funcionalidade)
+Faça o commit das suas alterações (git commit -am 'Adicione uma nova funcionalidade')
+Faça o push para a branch (git push origin feature/nova-funcionalidade)
+Crie um novo Pull Request
