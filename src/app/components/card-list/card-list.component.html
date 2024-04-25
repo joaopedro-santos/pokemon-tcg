@@ -27,13 +27,13 @@
 </div>
 
 <div class="bg-[#DDFAE8]" *ngIf="filteredCards">
-  <ul class="w-[60vw] mx-auto flex flex-wrap justify-between p-10 gap-5">
+  <ul class="w-[70vw] max-sm:w-[95vw] max-md:w-[85vw] mx-auto flex flex-wrap justify-between p-10 gap-5">
     <li
       class="hover:-translate-y-1.5 transition-all cursor-pointer hover:drop-shadow-xl"
       *ngFor="let card of filteredCards"
       (click)="showDetails(card)"
     >
-      <img class="w-48" [src]="card.imageUrl" alt="Imagem da Carta" />
+      <img class="max-sm:w-20 w-40" [src]="card.imageUrl" alt="Imagem da Carta" />
     </li>
   </ul>
 </div>
@@ -43,7 +43,7 @@
   id="default-modal"
   tabindex="-1"
   [attr.aria-hidden]="selectedCard ? 'false' : 'true'"
-  class="overflow-y-auto overflow-x-hidden fixed z-50"
+  class="overflow-y-auto overflow-x-hidden fixed z-50 max-md:w-[90vw]"
   [ngClass]="{ hidden: !selectedCard }"
 >
   <!-- Modal content -->
@@ -85,13 +85,13 @@
     <div class="p-4 md:p-5 space-y-4">
       <div class="flex justify-between gap-6 flex-wrap">
         <img
-          class="w-80 max-sm:w-70"
+          class="w-80 max-sm:w-72 max-md:w-40"
           [src]="selectedCard?.imageUrl"
           alt="Imagem da Carta"
           *ngIf="selectedCard"
         />
         <div class="flex flex-col">
-          <div class="bg-[#A4A4A4] p-2 w-[400px] max-sm:w-[290px] text-yellow-50 text-2xl font-bold rounded-t-xl">
+          <div class="bg-[#A4A4A4] p-2 w-[400px] max-sm:w-[290px] max-md:w-[300px] text-yellow-50 text-2xl font-bold rounded-t-xl">
             {{ selectedCard?.name }}
           </div>
           <div class="bg-[#F2F2F2] flex justify-between items-center p-2 max-sm:flex-col">

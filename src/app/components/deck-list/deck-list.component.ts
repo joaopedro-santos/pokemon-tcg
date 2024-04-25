@@ -26,7 +26,7 @@ showActions: any;
   }
 
   editDeck(id: number): void {
-    this.router.navigate(['/editDeck', id]); // Redireciona para a página de edição do deck com o ID do deck
+    this.router.navigate(['/deckEdit', id]); // Redireciona para a página de edição do deck com o ID do deck
   }
 
   detailDeck(id: number): void {

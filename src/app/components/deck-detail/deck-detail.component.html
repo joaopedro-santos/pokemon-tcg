@@ -1,4 +1,4 @@
-<div *ngIf="deck" class="mb-16 mt-16">
+<div *ngIf="deck" class="mb-16 mt-16 max-sm:mt-8 max-sm:px-2 max-md:px-2 max-md:mt-8">
   <nav class="flex max-w-7xl mx-auto mb-6" aria-label="Breadcrumb">
     <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse" >
       <li class="inline-flex items-center">
@@ -70,7 +70,7 @@
   <h2 class="text-2xl font-bold mb-4 max-w-7xl mx-auto">
     Deck: {{ deck.name }}
   </h2>
-  <div class="mt-8 max-w-7xl mx-auto flex justify-between max-sm:flex-col items-center">
+  <div class="mt-8 max-sm:mb-8 max-w-7xl mx-auto flex justify-between max-sm:flex-col items-right">
     <p><strong>Total de Pokémon:</strong> {{ pokemonCount }}</p>
     <p><strong>Total de Cartas de Treinador:</strong> {{ trainerCount }}</p>
     <p><strong>Total de Cores:</strong> {{ colorCount }}</p>
@@ -78,7 +78,7 @@
   </div>
   <h3 class="text-xl mb-4 max-w-7xl mx-auto">Cards:</h3>
 
-  <div class="mx-auto grid grid-cols-4 gap-4 justify-center max-w-7xl">
+  <div class="mx-auto grid max-sm:grid-cols-3 grid-cols-5 gap-4 justify-center max-w-7xl pb-8">
     <ng-container *ngFor="let card of deck.cards">
       <div class="bg-gray-200 rounded-lg shadow-md text-center">
         <img

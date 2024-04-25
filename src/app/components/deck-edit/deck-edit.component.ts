@@ -9,10 +9,10 @@ import { NgIf, NgFor } from '@angular/common';
   selector: 'app-edit-deck',
   standalone: true,
   imports: [NgIf, NgFor],
-  templateUrl: './edit-deck.component.html',
-  styleUrls: ['./edit-deck.component.css'],
+  templateUrl: './deck-edit.component.html',
+  styleUrls: ['./deck-edit.component.css'],
 })
-export class EditDeckComponent implements OnInit {
+export class DeckEditComponent implements OnInit {
   deckId: number | undefined;
   deck: Deck | undefined;
   availableCards: Card[] = [];

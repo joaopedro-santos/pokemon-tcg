@@ -4,7 +4,7 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { DeckListComponent } from './components/deck-list/deck-list.component';
 import { DeckCreateComponent } from './components/deck-create/deck-create.component';
 import { DeckDetailComponent } from './components/deck-detail/deck-detail.component';
-import { EditDeckComponent } from './components/edit-deck/edit-deck.component';
+import { DeckEditComponent } from './components/deck-edit/deck-edit.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,5 +13,5 @@ export const routes: Routes = [
   { path: 'decks/create', component: DeckCreateComponent },
   { path: 'decksList', component: DeckListComponent },
   { path: 'decksList/:id', component: DeckDetailComponent },
-  { path: 'editDeck/:id', component: EditDeckComponent }, 
+  { path: 'deckEdit/:id', component: DeckEditComponent }, 
 ];

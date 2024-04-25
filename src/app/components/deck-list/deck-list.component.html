@@ -1,20 +1,20 @@
 <section *ngIf="decks.length == 0" class="flex items-center flex-col max-sm:h-[90vh] h-[80vh] justify-center mt-10">
   <p class="font-semibold text-2xl">Lista de Decks vazia...</p>
-  <img src="https://storage.googleapis.com/sticker-prod/tDBP31KPJlEZXcvqZkw3/12.png" class="w-32" />
+  <img src="../../../assets/img/no-decks-banner.png" class="w-32" />
   <div class="flex justify-center">
     <button class="py-2 px-5 mt-4 bg-blue-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75" routerLink="/decks/create">Criar Novo Deck</button>
   </div>
 </section>
 
-<h2 class="text-2xl font-bold mb-4 max-w-7xl mx-auto mt-16" *ngIf="decks.length !== 0">Lista de Decks</h2>
+<h2 class="text-2xl font-bold mb-4 max-w-7xl mx-auto mt-16 max-sm:mt-8 max-sm:px-2 max-md:mt-8 max-md:px-2" *ngIf="decks.length !== 0">Lista de Decks</h2>
 
-<div class="max-w-7xl mx-auto overflow-x-auto">
+<div class="max-w-7xl mx-auto overflow-x-auto max-sm:px-2">
   <table *ngIf="decks.length > 0" class="min-w-full divide-y divide-gray-200">
     <thead class="bg-gray-50">
       <tr>
-        <th scope="col" class="px-3 py-2 md:px-6 md:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome do Deck</th>
-        <th scope="col" class="px-3 py-2 md:px-6 md:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantidade de Cartas</th>
-        <th scope="col" class="text-center px-3 py-2 md:px-6 md:py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</th>
+        <th scope="col" class="px-3 py-2 md:px-6 md:py-3 text-left text-xs max-sm:text-[10px] font-medium text-gray-500 uppercase tracking-wider">Nome do Deck</th>
+        <th scope="col" class="px-3 py-2 md:px-6 md:py-3 text-left text-xs max-sm:text-[10px] font-medium text-gray-500 uppercase tracking-wider">Quantidade de Cartas</th>
+        <th scope="col" class="text-center px-3 py-2 md:px-6 md:py-3 text-xs max-sm:text-[10px] font-medium text-gray-500 uppercase tracking-wider">Ações</th>
       </tr>
     </thead>
     <tbody class="bg-white divide-y divide-gray-200">
